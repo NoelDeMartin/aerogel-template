@@ -13,7 +13,7 @@ export default defineConfig({
     plugins: [
         Aerogel({ name: 'Aerogel' }),
         Components({
-            dts: false,
+            dts: 'src/types/components.d.ts',
             resolvers: [AerogelResolver(), IconsResolver()],
         }),
         I18n({ include: fileURLToPath(new URL('./src/lang/**/*.yaml', import.meta.url)) }),
