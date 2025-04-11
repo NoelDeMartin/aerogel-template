@@ -1,5 +1,5 @@
 <template>
-    <AppLayout class="bg-blue-50">
+    <AppLayout>
         <main class="flex grow flex-col items-center justify-center">
             <h1 class="text-4xl font-semibold">
                 {{ $t('home.title') }}
