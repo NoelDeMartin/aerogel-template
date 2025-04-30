@@ -1,4 +1,6 @@
 import i18n from '@aerogel/plugin-i18n';
+import localFirst from '@aerogel/plugin-local-first';
+import solid from '@aerogel/plugin-solid';
 import soukai from '@aerogel/plugin-soukai';
 import { bootstrap } from '@aerogel/core';
 
@@ -9,5 +11,7 @@ bootstrap(App, {
     plugins: [
         i18n({ messages: import.meta.glob('@/lang/*.yaml') }),
         soukai({ models: import.meta.glob(['@/models/*', '!**/*.test.ts'], { eager: true }) }),
+        solid(),
+        localFirst(),
     ],
 });

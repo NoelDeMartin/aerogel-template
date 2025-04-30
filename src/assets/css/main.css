@@ -1,5 +1,1 @@
 @import '@aerogel/core';
-
-@theme {
-    --color-background: var(--color-blue-50);
-}

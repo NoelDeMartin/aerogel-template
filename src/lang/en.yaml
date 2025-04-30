@@ -1,3 +1,2 @@
-home:
-  title: Aerogel
-  getStarted: Get started
+app:
+    title: 'App'

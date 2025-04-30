@@ -2,8 +2,8 @@ describe('App', () => {
 
     beforeEach(() => cy.visit('/'));
 
-    it('Shows get started link', () => {
-        cy.see('Get started');
+    it('Shows welcome', () => {
+        cy.see('Welcome to your new app');
     });
 
 });

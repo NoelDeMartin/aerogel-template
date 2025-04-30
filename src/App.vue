@@ -1,12 +1,8 @@
 <template>
     <AppLayout>
-        <main class="flex grow flex-col items-center justify-center">
-            <h1 class="text-4xl font-semibold">
-                {{ $t('home.title') }}
-            </h1>
-            <a href="https://aerogel.js.org" target="_blank" class="mt-2 underline opacity-75 hover:opacity-100">
-                {{ $t('home.getStarted') }}
-            </a>
+        <AppHeader />
+        <main class="mx-auto w-full max-w-screen-md grow flex-col items-center justify-center py-8 text-center">
+            <Welcome />
         </main>
     </AppLayout>
 </template>
