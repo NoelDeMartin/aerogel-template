@@ -1,5 +1,7 @@
 <template>
-    <div class="border-primary-400 bg-primary-50 dark:bg-primary-950/30 relative rounded-lg border-2 border-dashed p-8">
+    <div
+        class="border-primary-400 bg-primary-50 dark:bg-primary-950/30 relative rounded-lg border-2 border-dashed p-8 text-center"
+    >
         <h2 class="text-3xl font-bold">
             Welcome to your new app
         </h2>
