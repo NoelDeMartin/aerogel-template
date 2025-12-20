@@ -46,7 +46,7 @@
         "@noeldemartin/scripts": "next",
         "@solid/community-server": "7.1.6",
         "@total-typescript/ts-reset": "^0.4.2",
-        "@tsconfig/node22": "^22.0.1",
+        "@tsconfig/node24": "^24.0.3",
         "@types/node": "^24.10.4",
         "@typescript-eslint/eslint-plugin": "^5.62.0",
         "@vue/tsconfig": "^0.7.0",
