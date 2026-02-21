@@ -12,7 +12,7 @@ export default defineConfig({
     base: process.env.NODE_ENV === 'production' ? '/hello-aerogel/' : '/',
     publicDir: fileURLToPath(new URL('./src/assets/public/', import.meta.url)),
     plugins: [
-        Aerogel({ name: 'Aerogel' }),
+        Aerogel({ name: 'Aerogel', patchZodWithSoukaiBis: true }),
         Components({
             deep: true,
             dts: 'src/types/components.d.ts',
