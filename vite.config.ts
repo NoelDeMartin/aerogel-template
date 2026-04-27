@@ -5,14 +5,14 @@ import Components from 'unplugin-vue-components/vite';
 import I18n from '@intlify/unplugin-vue-i18n/vite';
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vite-plus';
 
 export default defineConfig({
     build: { sourcemap: true },
     base: process.env.NODE_ENV === 'production' ? '/hello-aerogel/' : '/',
     publicDir: fileURLToPath(new URL('./src/assets/public/', import.meta.url)),
     plugins: [
-        Aerogel({ name: 'Aerogel', patchZodWithSoukaiBis: true }),
+        Aerogel({ name: 'Aerogel' }),
         Components({
             deep: true,
             dts: 'src/types/components.d.ts',
@@ -26,6 +26,8 @@ export default defineConfig({
             },
         }),
     ],
+    fmt: { semi: true, singleQuote: true, tabWidth: 4, printWidth: 120 },
+    lint: { options: { typeAware: true, typeCheck: true } },
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),

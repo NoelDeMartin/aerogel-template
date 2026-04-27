@@ -2,30 +2,24 @@ name: CI
 
 on: [push, pull_request]
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 jobs:
     ci:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - uses: pnpm/action-setup@v4
+            - uses: actions/checkout@v6
+            - uses: voidzero-dev/setup-vp@v1
               with:
-                  version: 10
-                  run_install: false
-            - uses: actions/setup-node@v4
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-            - run: pnpm install
-            - run: pnpm build
-            - run: pnpm lint
-            - run: pnpm test:ci
-            - run: pnpm cy:test
-            - name: Upload Cypress screenshots
-              uses: actions/upload-artifact@v4
-              if: ${{ failure() }}
-              with:
-                  name: cypress_screenshots
-                  path: cypress/screenshots
+                  node-version-file: '.node-version'
+                  cache: true
+            - run: vp install
+            - run: vp check
+            - run: vp run type-check
+            - run: vp test
+            - run: vp build
     deploy:
         if: github.ref == 'refs/heads/main'
         runs-on: ubuntu-latest
@@ -35,14 +29,10 @@ jobs:
         permissions:
             contents: write
         steps:
-            - uses: actions/checkout@v4
-            - uses: pnpm/action-setup@v4
+            - uses: actions/checkout@v6
+            - uses: voidzero-dev/setup-vp@v1
               with:
-                  version: 10
-                  run_install: false
-            - uses: actions/setup-node@v4
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-            - run: pnpm install
-            - run: pnpm run deploy
+                  node-version-file: '.node-version'
+                  cache: true
+            - run: vp install
+            - run: vp run deploy
