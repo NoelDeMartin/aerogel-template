@@ -1,10 +1,10 @@
 import { URL, fileURLToPath } from 'node:url';
 
 import Aerogel, { AerogelResolver } from '@aerogel/vite';
-import Components from 'unplugin-vue-components/vite';
 import I18n from '@intlify/unplugin-vue-i18n/vite';
-import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
+import Icons from 'unplugin-icons/vite';
+import Components from 'unplugin-vue-components/vite';
 import { defineConfig } from 'vite-plus';
 
 export default defineConfig({
@@ -26,8 +26,20 @@ export default defineConfig({
             },
         }),
     ],
-    fmt: { semi: true, singleQuote: true, tabWidth: 4, printWidth: 120 },
-    lint: { options: { typeAware: true, typeCheck: true } },
+    fmt: {
+        semi: true,
+        singleQuote: true,
+        tabWidth: 4,
+        printWidth: 120,
+        sortImports: true,
+        sortTailwindcss: true,
+    },
+    lint: {
+        options: {
+            typeAware: true,
+            typeCheck: true,
+        },
+    },
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),
