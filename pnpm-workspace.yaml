@@ -3,12 +3,14 @@ allowBuilds:
     vue-demi: true
 catalog:
     '@noeldemartin/solid-utils': next
+    '@noeldemartin/utils': next
     'soukai-bis': next
     vite: npm:@voidzero-dev/vite-plus-core@latest
     vite-plus: latest
     vitest: npm:@voidzero-dev/vite-plus-test@latest
 overrides:
     '@noeldemartin/solid-utils': 'catalog:'
+    '@noeldemartin/utils': 'catalog:'
     soukai-bis: 'catalog:'
     vite: 'catalog:'
     vitest: 'catalog:'
@@ -19,3 +21,8 @@ peerDependencyRules:
     allowedVersions:
         vite: '*'
         vitest: '*'
+minimumReleaseAgeExclude:
+    - '@aerogel/*'
+    - '@noeldemartin/*'
+    - playwright-solid
+    - soukai-bis
