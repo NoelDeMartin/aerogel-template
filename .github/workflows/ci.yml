@@ -32,8 +32,16 @@ jobs:
                   node-version-file: '.node-version'
                   cache: true
             - run: vp install
-            - run: vp exec playwright install --with-deps ${{ matrix.browser }}
+            - run: vpx playwright install --with-deps ${{ matrix.browser }}
             - run: vp run e2e:test:${{ matrix.browser }}
+            - name: Upload Playwright artifacts
+              uses: actions/upload-artifact@v4
+              if: failure()
+              with:
+                  name: playwright-${{ matrix.browser }}
+                  path: |
+                      playwright-report/
+                      test-results/
     deploy:
         if: github.ref == 'refs/heads/main'
         runs-on: ubuntu-latest
