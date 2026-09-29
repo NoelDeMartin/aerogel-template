@@ -1,8 +1,9 @@
 {
     "extends": "@vue/tsconfig/tsconfig.dom.json",
-    "include": ["src/**/*", "src/**/*.vue"],
+    "include": ["src/**/*", "src/**/*.vue", ".storybook/**/*"],
     "compilerOptions": {
         "noUncheckedIndexedAccess": true,
+        "types": ["@aerogel/vite/shims", "unplugin-icons/types/vue3"],
         "paths": {
             "@/*": ["./src/*"]
         },

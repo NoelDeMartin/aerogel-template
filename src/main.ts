@@ -8,7 +8,7 @@ import './assets/css/main.css';
 import App from './App.vue';
 import routes from './pages/index';
 
-await bootstrap(App, {
+export default await bootstrap(App, {
     plugins: [
         i18n({ messages: import.meta.glob('@/lang/*.yaml') }),
         routing({ routes }),
