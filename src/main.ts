@@ -9,10 +9,5 @@ import App from './App.vue';
 import routes from './pages/index';
 
 export default await bootstrap(App, {
-    plugins: [
-        i18n({ messages: import.meta.glob('@/lang/*.yaml') }),
-        routing({ routes }),
-        solid({ models: import.meta.glob(['@/models/*', '!**/*.test.ts'], { eager: true }) }),
-        localFirst(),
-    ],
+    plugins: [i18n(), routing({ routes }), solid(), localFirst()],
 });
