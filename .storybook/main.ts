@@ -8,6 +8,7 @@ const config: StorybookConfig = {
         disableTelemetry: true,
     },
     features: {
+        backgrounds: false,
         sidebarOnboardingChecklist: false,
     },
 };
